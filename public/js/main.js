@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     username = "Anonymous" + Math.floor(Math.random() * 10);
   }
   localStorage.setItem('username', username);
-  let avatarURL = `https://api.dicebear.com/8.x/bottts-neutral/svg?seed=${username}`; // The avatar URL will be fetched based on the username
+  let avatarURL = `https://api.dicebear.com/8.x/bottts-neutral/svg?seed=${uid}`; // The avatar URL will be fetched based on the username
 
   // Add loading indicator while fetching chat history
   const loadingIndicator = document.createElement('div');

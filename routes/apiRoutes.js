@@ -4,8 +4,6 @@ const router = express.Router();
 const MarkdownIt = require('markdown-it'),
   md = new MarkdownIt();
 
-// Import the avatar generator utility
-const { generateAvatar } = require('../utils/avatarGenerator');
 
 // Function to parse markdown content to HTML
 function parseMarkdownToHtml(content) {
@@ -47,28 +45,6 @@ router.post('/messages', async (req, res) => {
   } catch (error) {
     console.error('Error saving message:', error.message, error.stack);
     res.status(500).send(error.message);
-  }
-});
-
-// New endpoint for avatar generation
-router.get('/avatar', async (req, res) => {
-  const { username } = req.query;
-
-  if (!username) {
-    console.log("Username is required for avatar generation.");
-    return res.status(400).send('Username is required');
-  }
-
-  try {
-    // Use the avatar generator utility to generate avatar
-    const avatarUrl = await generateAvatar(username);
-
-    console.log("Avatar generated successfully.");
-    // Return the avatar URL
-    res.send({ avatarUrl });
-  } catch (error) {
-    console.error('Error generating avatar:', error.message, error.stack);
-    res.status(500).send('Error generating avatar');
   }
 });
 
