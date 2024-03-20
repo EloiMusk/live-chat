@@ -1,17 +1,17 @@
 # Live-Chat
 
-Live-Chat is a web-based application that enables users to communicate in a single, large chat room without the need for registration. It provides a seamless, real-time chatting experience, where users can set temporary usernames, choose avatars, and view chat history. This application focuses on simplicity and usability, making it easy for anyone to join and start chatting immediately.
+Live-Chat is a web-based live chat platform allowing users to communicate in real-time within a single, large chat room. Users can set a temporary username, select an avatar, and engage in conversations with ease. The app emphasizes simplicity and seamless communication, requiring no registration or login, making it accessible for anyone to start chatting instantly.
 
 ## Overview
 
-The application is built using Node.js with Express for the backend, MongoDB for storing chat messages, and EJS for templating. The frontend is developed with vanilla JavaScript and styled using either Bootstrap or Tailwind CSS. Live-Chat integrates the DiceBear JS library for generating unique avatars based on user input. The architecture supports real-time communication using Socket.IO, ensuring messages are delivered and displayed without page refreshes.
+The application utilizes Node.js with Express for the backend, MongoDB for data storage, and EJS for templating. The frontend leverages vanilla JavaScript for dynamic content and Bootstrap or Tailwind CSS for styling, ensuring a responsive and appealing design. Integration with the DiceBear JS library allows for customizable avatar selection. The application supports real-time messaging through Socket.IO, markdown formatting for messages, and includes a dark mode feature for enhanced user experience.
 
 ## Features
 
-- **Temporary Username and Avatar Selection:** Choose a username and an avatar upon entering the chat room. This information is stored in the browser for returning users.
-- **Persistent Chat History:** View previous messages upon returning to the chat. Older messages are automatically removed after 30 days.
-- **Markdown Support:** Enhance messages with simple markdown formatting, including bold, italic, and hyperlinks.
-- **Real-time Communication:** Messages are sent and received in real-time, providing a seamless chatting experience.
+- **Temporary Username and Avatar Selection:** Users can choose a username and an avatar for their session, enhancing personalization.
+- **Persistent Chat History:** Chat history is saved, allowing users to catch up on missed conversations. Messages older than 30 days are automatically deleted.
+- **Markdown Support:** Users can format their messages with simple markdown syntax, adding richness to the chat.
+- **Design and Usability:** A clean, flat design with support for dark mode, providing a modern and comfortable user interface.
 
 ## Getting Started
 

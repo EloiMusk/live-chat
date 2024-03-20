@@ -12,11 +12,58 @@ function setUID() {
   return uid
 }
 
+// Function to toggle dark mode
+function toggleDarkMode(isDarkMode) {
+  const link = document.querySelector('link[href="/css/dark-mode.css"]');
+  if (isDarkMode) {
+    if (!link) {
+      const newLink = document.createElement('link');
+      newLink.rel = 'stylesheet';
+      newLink.href = '/css/dark-mode.css';
+      document.head.appendChild(newLink);
+    }
+  } else {
+    if (link) {
+      document.head.removeChild(link);
+    }
+  }
+  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  document.body.classList.toggle('dark-mode', isDarkMode);
+
+  // Toggle dark mode for dynamically created elements like chat messages and buttons
+  const chatMessages = document.querySelectorAll('.chat-message');
+  chatMessages.forEach(message => {
+    message.classList.toggle('dark-mode', isDarkMode);
+  });
+
+  const buttons = document.querySelectorAll('button, .btn');
+  buttons.forEach(button => {
+    button.classList.toggle('dark-mode', isDarkMode);
+  });
+
+  // Ensure the messages container also toggles dark mode
+  const messagesContainer = document.getElementById('messages-container');
+  if (messagesContainer) {
+    messagesContainer.classList.toggle('dark-mode', isDarkMode);
+  }
+}
+
+// Function to apply stored theme preference
+function applyStoredThemePreference() {
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme === 'dark') {
+    document.getElementById('darkModeSwitch').checked = true;
+    toggleDarkMode(true);
+  } else {
+    document.getElementById('darkModeSwitch').checked = false; // Ensure the switch reflects the light theme
+    toggleDarkMode(false); // Apply light theme if stored preference is light
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const messageForm = document.getElementById('message-form');
   const messageInput = document.getElementById('message-input');
   const messagesContainer = document.getElementById('messages-container');
-  const chatInterface = document.querySelector('.chat-interface'); // Assuming there's a chat interface div
   let username = localStorage.getItem('username') || changeUsername();
   const uid = localStorage.getItem('uid') || setUID();
   document.getElementById('username-badge').textContent = username;
@@ -84,6 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
     messageElement.appendChild(avatarAndContentContainer);
 
     messagesContainer.appendChild(messageElement);
+    // Apply dark mode class if needed
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark') {
+      messageElement.classList.add('dark-mode');
+    }
     // Scroll to the bottom every time a new message is added
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
@@ -150,4 +202,13 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.reload(); // Reload the page to apply the new username
     }
   });
+
+  // Add event listener for dark mode toggle switch
+  const darkModeSwitch = document.getElementById('darkModeSwitch');
+  darkModeSwitch.addEventListener('change', function () {
+    toggleDarkMode(this.checked);
+  });
+
+  // Apply stored theme preference on page load
+  applyStoredThemePreference();
 });

@@ -1,45 +1,88 @@
-/* Custom styles for the live-chat application */
+/* CSS Variables for a consistent color palette */
+:root {
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --button-color: #007bff;
+  --button-text-color: #ffffff;
+  --chat-background-color: #ffffff;
+  --chat-border-color: #e0e0e0;
+  --current-user-message-color: #dcf8c6;
+  /* Color for the current user's messages */
+  --other-user-message-color: #ebebeb;
+  /* Color for other users' messages */
+  --clear-chat-button-color: #ff4500;
+  /* Color for the clear chat button */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+/* General flat design improvements */
+button,
+.btn {
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  /* Makes button text stand out */
+  text-transform: uppercase;
+  /* Adds a stylistic touch to buttons */
+}
+
+button:hover,
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Specific style for the clear chat button */
+#clear-chat-btn {
+  background-color: var(--clear-chat-button-color);
+  color: var(--button-text-color);
+}
+
+/* Chat message styling */
 .chat-message {
   margin-bottom: 10px;
   padding: 10px;
-  border-radius: 5px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: var(--chat-background-color);
+  border: 2px solid var(--chat-border-color);
   display: flex;
   flex-direction: row;
-  max-width: fit-content;
-  /* Adjust width to fit content */
-}
-
-.chat-message img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
 
 .current-user {
-  background-color: #dcf8c6;
-  border: 1px solid #bfe9a6;
-  display: flex;
+  background-color: var(--current-user-message-color);
+  border: 2px solid var(--chat-border-color);
   justify-content: flex-end;
   align-self: flex-end;
-  /* Align current user messages to the right */
 }
 
-
 .other-user {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  display: flex;
+  background-color: var(--other-user-message-color);
+  border: 2px solid var(--chat-border-color);
   justify-content: flex-start;
   align-self: flex-start;
-  /* Align other user messages to the left */
 }
 
 #messages-container {
   font-size: 14px;
   display: flex;
   flex-direction: column;
+  background-color: var(--chat-background-color);
+  border: 2px solid var(--chat-border-color);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 400px);
 }
 
 #loading-indicator {
@@ -69,6 +112,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .message-content-container {
@@ -80,4 +124,48 @@
 
 .message-content {
   word-wrap: break-word;
+}
+
+/* Input field */
+#message-input {
+  flex-grow: 1;
+  border: 2px solid var(--chat-border-color);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  /* Makes text easier to read */
+}
+
+/* Adjustments for inline form */
+#message-form {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  /* Creates space between input and button */
+}
+
+/* Enhancements for flat and clean design */
+nav.navbar,
+footer.footer {
+  background-color: var(--background-color);
+  border: none;
+}
+
+/* Remove shadows and gradients */
+* {
+  box-shadow: none;
+  text-shadow: none;
+  background-image: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  #messages-container {
+    max-height: 75vh;
+    /* Optimized max-height for usability on smaller devices */
+  }
 }
