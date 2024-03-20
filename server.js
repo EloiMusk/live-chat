@@ -96,7 +96,7 @@ app.use('/api', apiRoutes);
 
 // Root path response
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {version: process.env.npm_package_version});
 });
 
 // If no routes handled the request, it's a 404
