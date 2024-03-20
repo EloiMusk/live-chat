@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatInterface = document.querySelector('.chat-interface'); // Assuming there's a chat interface div
   let username = localStorage.getItem('username') || changeUsername();
   const uid = localStorage.getItem('uid') || setUID();
+  document.getElementById('username-badge').textContent = username;
 
   if (!username) {
     username = "Anonymous" + Math.floor(Math.random() * 10);
