@@ -1,0 +1,83 @@
+/* Custom styles for the live-chat application */
+.chat-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  max-width: fit-content;
+  /* Adjust width to fit content */
+}
+
+.chat-message img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.current-user {
+  background-color: #dcf8c6;
+  border: 1px solid #bfe9a6;
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  /* Align current user messages to the right */
+}
+
+
+.other-user {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+  /* Align other user messages to the left */
+}
+
+#messages-container {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+#loading-indicator {
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+}
+
+.avatar-and-content-container {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+
+.message-username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message-avatar-container {
+  flex: 0 0 auto;
+  /* Do not grow or shrink */
+  padding-right: 10px;
+}
+
+.message-avatar-container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.message-content-container {
+  flex: 1;
+  /* Grow to use available space */
+  display: flex;
+  flex-direction: column;
+}
+
+.message-content {
+  word-wrap: break-word;
+}

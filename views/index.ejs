@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/_head.ejs') %>
+<script src="/socket.io/socket.io.js"></script>
+  <body>
+<%- include('partials/_header.ejs') %>
+    <main role="main" class="container mt-4">
+      <div class="text-center">
+        <h1>live-chat</h1>
+        <div id="messages-container" class="mb-3" style="height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px;"></div>
+        <form id="message-form" class="input-group mb-3">
+          <input id="message-input" type="text" class="form-control" placeholder="Type your message here..." autocomplete="off">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Send</button>
+          </div>
+        </form>
+        <button id="clear-chat-btn" class="btn btn-secondary mt-3">Clear Chat</button>
+        <button id="change-username-btn" class="btn btn-info mt-3">Change Username</button>
+      </div>
+    </main>
+  </body>
+<%- include('partials/_footer.ejs') %>
+  <script src="/js/main.js"></script>
+</html>
