@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/_head.ejs') %>
-<script src="/socket.io/socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
   <body>
-<%- include('partials/_header.ejs') %>
-    <main role="main" class="container mt-4">
-      <div class="text-center">
-        <h1>live-chat</h1>
-        <!-- Updated messages container with more whitespace and simplified layout -->
-        <div id="messages-container"></div>
-        <!-- Simplified chat input form -->
-        <form id="message-form" class="d-flex align-items-center justify-content-center">
-          <input id="message-input" type="text" placeholder="Type your message here..." autocomplete="off">
-          <button class="btn btn-primary" type="submit">Send</button>
-        </form>
-        <!-- Optionally you can add more buttons with the same styling -->
-        <div class="mt-3">
-          <button id="clear-chat-btn" class="btn btn-warning">Clear Chat</button>
-          <button id="change-username-btn" class="btn btn-info">Change Username</button>
+    <%- include('partials/_header.ejs') %>
+      <main role="main" class="container mt-4">
+        <div class="text-center">
+          <h1>live-chat</h1>
+          <!-- Updated messages container with more whitespace and simplified layout -->
+          <div id="messages-container"></div>
+          <!-- Simplified chat input form -->
+          <form id="message-form" class="d-flex align-items-center justify-content-center">
+            <textarea id="message-input" type="text" placeholder="Type your message here..."
+              autocomplete="off"></textarea>
+            <button class="btn btn-primary" type="submit">Send</button>
+          </form>
+          <!-- Optionally you can add more buttons with the same styling -->
+          <div class="mt-3">
+            <button id="clear-chat-btn" class="btn btn-warning">Clear Chat</button>
+            <button id="change-username-btn" class="btn btn-info">Change Username</button>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
   </body>
-<%- include('partials/_footer.ejs') %>
-  <script src="/js/main.js"></script>
+  <%- include('partials/_footer.ejs') %>
+    <script src="/js/main.js"></script>
+
 </html>
